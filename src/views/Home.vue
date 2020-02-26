@@ -5,7 +5,7 @@
       {{ JSON.stringify(CHANNELS) }}
     </div>
     <ul>
-      <li>{{ channel.name }}</li>
+      <li v-for="channel in channels" :key="channel.id">{{ channel.name }}</li>
     </ul>
   </div>
 </template>
@@ -25,7 +25,9 @@ export default {
     ])
   },
   computed: {
-    ...mapGetters(['CHANNELS'])
+    ...mapGetters({
+      channels: 'CHANNELS'
+    })
   }
 }
 </script>
