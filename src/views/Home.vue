@@ -1,10 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <div>
-      {{ JSON.stringify(CHANNELS) }}
-    </div>
-    <ul>
+    <ul v-if="channels">
       <li v-for="channel in channels" :key="channel.id">{{ channel.name }}</li>
     </ul>
   </div>
@@ -21,7 +18,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'LOAD_CONFIG'
+      'LOAD_CONFIG',
+      'CLEAR_CONFIG'
     ])
   },
   computed: {
