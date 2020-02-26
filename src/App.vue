@@ -7,7 +7,12 @@
     <router-view/>
   </div>
 </template>
+<script>
+// @ is an alias to /src
+export default {
 
+}
+</script>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

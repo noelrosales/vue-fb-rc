@@ -1,18 +1,31 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      {{ JSON.stringify(CHANNELS) }}
+    </div>
+    <ul>
+      <li>{{ channel.name }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'home',
-  components: {
-    HelloWorld
+  async beforeMount () {
+    await this.LOAD_CONFIG()
+  },
+  methods: {
+    ...mapActions([
+      'LOAD_CONFIG'
+    ])
+  },
+  computed: {
+    ...mapGetters(['CHANNELS'])
   }
 }
 </script>
