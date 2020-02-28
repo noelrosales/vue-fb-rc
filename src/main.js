@@ -5,6 +5,7 @@ import store from './store'
 import * as firebase from 'firebase/app'
 import firebaseConfig from './firebaseConfig'
 
+indexedDB.deleteDatabase('firebase_remote_config')
 firebase.initializeApp(firebaseConfig)
 
 Vue.config.productionTip = false
