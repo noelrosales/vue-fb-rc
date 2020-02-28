@@ -14,6 +14,7 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'home',
   async beforeMount () {
+    indexedDB.deleteDatabase('firebase_remote_config')
     await this.LOAD_CONFIG()
   },
   methods: {
